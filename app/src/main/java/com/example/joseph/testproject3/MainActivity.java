@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.joseph.testproject3.R;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText firstNumber;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 num1 = Double.parseDouble(firstNumber.getText().toString());
                 num2 = Double.parseDouble(secondNumber.getText().toString());
-                sum = num1 + num2;
+                sum = num1 - num2;
                 addResult.setText(Double.toString(sum));
             }
         });

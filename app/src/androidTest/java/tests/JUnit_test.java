@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.joseph.testproject3.MainActivity;
+
 import com.example.joseph.testproject3.R;
 
 /**
@@ -28,14 +29,13 @@ public class JUnit_test extends ActivityInstrumentationTestCase2<MainActivity> {
         super(MainActivity.class);
     }
 
-    public void test_first()
-    {
+    public void test_first() {
         EditText firstNumber;
         EditText secondNumber;
         TextView addResult;
         Button btnAdd;
 
-        double num1,num2,sum;
+        double num1, num2, sum;
         mainActivity = getActivity();
 
         //TextView textView = (TextView) mainActivity.findViewById( R.id.tv1 );
@@ -43,15 +43,15 @@ public class JUnit_test extends ActivityInstrumentationTestCase2<MainActivity> {
 
         //assertEquals("Hello World!", tester);
 
-        firstNumber = (EditText)mainActivity.findViewById(R.id.firstone);
-        secondNumber = (EditText)mainActivity.findViewById(R.id.editText);
+        firstNumber = (EditText) mainActivity.findViewById(R.id.firstone);
+        secondNumber = (EditText) mainActivity.findViewById(R.id.editText);
         firstNumber.setText("15");
         secondNumber.setText("16");
-        addResult = (TextView)mainActivity.findViewById(R.id.textView4);
-        btnAdd = (Button)mainActivity.findViewById(R.id.button);
+        addResult = (TextView) mainActivity.findViewById(R.id.textView4);
+        btnAdd = (Button) mainActivity.findViewById(R.id.button);
         btnAdd.performClick();
 
-        assertEquals( 31, Double.parseDouble(addResult.getText().toString()) );
+        assertEquals(31, Double.parseDouble(addResult.getText().toString()));
     }
 
 }
