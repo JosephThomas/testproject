@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 num1 = Double.parseDouble(firstNumber.getText().toString());
                 num2 = Double.parseDouble(secondNumber.getText().toString());
-                sum = num1 - num2;
+                sum = num1 + num2;
                 addResult.setText(Double.toString(sum));
             }
         });

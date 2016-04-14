@@ -30,10 +30,10 @@ public class JUnit_test extends ActivityInstrumentationTestCase2<MainActivity> {
     }
 
     public void test_first() {
-        EditText firstNumber;
-        EditText secondNumber;
-        TextView addResult;
-        Button btnAdd;
+        final EditText firstNumber;
+        final EditText secondNumber;
+        //final TextView addResult;
+        final Button[] btnAdd = new Button[1];
 
         double num1, num2, sum;
         mainActivity = getActivity();
@@ -45,13 +45,23 @@ public class JUnit_test extends ActivityInstrumentationTestCase2<MainActivity> {
 
         firstNumber = (EditText) mainActivity.findViewById(R.id.firstone);
         secondNumber = (EditText) mainActivity.findViewById(R.id.editText);
-        firstNumber.setText("15");
-        secondNumber.setText("16");
-        addResult = (TextView) mainActivity.findViewById(R.id.textView4);
-        btnAdd = (Button) mainActivity.findViewById(R.id.button);
-        btnAdd.performClick();
+        mainActivity.runOnUiThread(new Runnable() {
+            public void run() {
+                firstNumber.setText("15");
+                secondNumber.setText("16");
+                btnAdd[0] = (Button) mainActivity.findViewById(R.id.button);
 
-        assertEquals(31, Double.parseDouble(addResult.getText().toString()));
+                btnAdd[0].performClick();
+
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                assertEquals(31, Double.parseDouble(((TextView) mainActivity.findViewById(R.id.textView4)).getText().toString()));
+            }
+        });
     }
 
 }
